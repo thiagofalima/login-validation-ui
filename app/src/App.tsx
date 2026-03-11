@@ -1,9 +1,10 @@
 import { Container } from "./components/Container";
+import { Input } from "./components/Input";
 
 function App() {
   return (
     <Container>
-      <h1>Hello</h1>
+      <Input placeholder="E-mail"/>
     </Container>
   );
 }

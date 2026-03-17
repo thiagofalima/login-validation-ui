@@ -7,7 +7,7 @@ import { Input } from "../components/Input";
 
 const Login = () => {
 
-    const { register, watch, formState: { errors, isValid } } = useForm();
+    const { register, control, watch, formState: { errors, isValid } } = useForm();
     const form = watch();
 
     console.log(form)
@@ -16,8 +16,8 @@ const Login = () => {
     <Container>
       <Form>
         <Heading>Login</Heading>
-        <Input placeholder="E-mail" {...register("email")}/>
-        <Input placeholder="Senha" {...register("password")}/>
+        <Input placeholder="E-mail" {...register("email")} control={ control }/>
+        <Input placeholder="Senha" {...register("password")} control={ control }/>
         <Button>Entrar</Button>
       </Form>
     </Container>

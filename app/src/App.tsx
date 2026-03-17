@@ -1,19 +1,13 @@
-import { Button } from "./components/Button";
-import { Container } from "./components/Container";
-import { Form } from "./components/Form";
-import { Heading } from "./components/Heading";
-import { Input } from "./components/Input";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
 
 function App() {
   return (
-    <Container>
-      <Form>
-        <Heading>Login</Heading>
-        <Input name="email" placeholder="E-mail"/>
-        <Input name="senha" placeholder="Senha" type="password"/>
-        <Button>Entrar</Button>
-      </Form>
-    </Container>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={ <Login /> }/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

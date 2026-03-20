@@ -4,6 +4,22 @@ import { Container } from "../components/Container";
 import { Form } from "../components/Form";
 import { Heading } from "../components/Heading";
 import { Input } from "../components/Input";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { Control } from "react-hook-form";
+
+const schema = yup
+  .object({
+    firstName: yup
+      .string()
+      .email("E-mail inválido")
+      .required("Campo obrigarótio"),
+    age: yup
+      .string()
+      .min(6, "No mínimo 6 caracteres")
+      .required("Campo obrigatório"),
+  })
+  .required();
 
 const Login = () => {
 

@@ -11,20 +11,29 @@ export const StyledInput = styled.input`
   border: 2px solid #952294;
 `;
 
-export const Input = ({ control, name, ...rest }: IInput) => {
+const ErrorMessage = styled.p`
+  margin: 0 20px;
+  font-size: 14px;
+  color: red;
+`;
+
+export const Input = ({ control, name, errorMessage, ...rest }: IInput) => {
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field: { onChange, onBlur, value, ref } }) => (
-        <StyledInput
-          {...rest}
-          onChange={onChange}
-          onBlur={onBlur}
-          value={value}
-          ref={ref}
-        />
-      )}
-    />
+    <>
+      <Controller
+        name={name}
+        control={control}
+        render={({ field: { onChange, onBlur, value, ref } }) => (
+          <StyledInput
+            {...rest}
+            onChange={onChange}
+            onBlur={onBlur}
+            value={value}
+            ref={ref}
+          />
+        )}
+      />
+      {errorMessage ? <ErrorMessage>{errorMessage}</ErrorMessage> : null}
+    </>
   );
 };

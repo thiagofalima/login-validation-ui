@@ -34,8 +34,8 @@ const Login = () => {
     <Container>
       <Form>
         <Heading>Login</Heading>
-        <Input placeholder="E-mail" name="email" control={control} />
-        <Input placeholder="Senha" name="password" control={control} />
+        <Input placeholder="E-mail" name="email" control={control} errorMessage={errors.email?.message}/>
+        <Input placeholder="Senha" name="password" control={control} errorMessage={errors.password?.message}/>
         <Button>Entrar</Button>
       </Form>
     </Container>

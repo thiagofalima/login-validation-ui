@@ -28,14 +28,14 @@ const Login = () => {
     reValidateMode: "onChange", // revalidar assim que alterar o campo
   });
 
-  console.log(errors);
+  console.log(isValid);
 
   return (
     <Container>
       <Form>
         <Heading>Login</Heading>
         <Input type="email" placeholder="E-mail" name="email" control={control} errorMessage={errors.email?.message}/>
-        <Input type="pasword" placeholder="Senha" name="password" control={control} errorMessage={errors.password?.message}/>
+        <Input type="password" placeholder="Senha" name="password" control={control} errorMessage={errors.password?.message}/>
         <Button>Entrar</Button>
       </Form>
     </Container>

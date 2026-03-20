@@ -21,25 +21,19 @@ const schema = yup
 const Login = () => {
   const {
     control,
-    watch,
     formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const form = watch();
 
-  console.log(form);
+  console.log(errors);
 
   return (
     <Container>
       <Form>
         <Heading>Login</Heading>
         <Input placeholder="E-mail" name="email" control={control} />
-        <Input
-          placeholder="Senha"
-          name="password"
-          control={control}
-        />
+        <Input placeholder="Senha" name="password" control={control} />
         <Button>Entrar</Button>
       </Form>
     </Container>

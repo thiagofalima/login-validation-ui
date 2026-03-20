@@ -20,7 +20,6 @@ const schema = yup
 
 const Login = () => {
   const {
-    register,
     control,
     watch,
     formState: { errors, isValid },
@@ -35,10 +34,10 @@ const Login = () => {
     <Container>
       <Form>
         <Heading>Login</Heading>
-        <Input placeholder="E-mail" {...register("email")} control={control} />
+        <Input placeholder="E-mail" name="email" control={control} />
         <Input
           placeholder="Senha"
-          {...register("password")}
+          name="password"
           control={control}
         />
         <Button>Entrar</Button>

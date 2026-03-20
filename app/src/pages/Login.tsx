@@ -6,7 +6,6 @@ import { Heading } from "../components/Heading";
 import { Input } from "../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Control } from "react-hook-form";
 import { FormValues } from "../types/FormData";
 
 const schema = yup
@@ -19,15 +18,13 @@ const schema = yup
   })
   .required();
 
-
-
 const Login = () => {
   const {
     control,
     formState: { errors, isValid },
   } = useForm<FormValues>({
     resolver: yupResolver(schema),
-    mode: "onBlur",  // validação sempre que sair do campo
+    mode: "onBlur", // validação sempre que sair do campo
     reValidateMode: "onChange", // revalidar assim que alterar o campo
   });
 

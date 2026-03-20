@@ -11,14 +11,20 @@ export const StyledInput = styled.input`
   border: 2px solid #952294;
 `;
 
-export const Input = ({control,name, ...rest}: IInput) => {
+export const Input = ({ control, name, ...rest }: IInput) => {
   return (
-      <Controller
-        name={name}
-        control={control}
-        render={() => <StyledInput {...rest}/>}
-      />
-  )
-}
-
-
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, onBlur, value, ref } }) => (
+        <StyledInput
+          {...rest}
+          onChange={onChange}
+          onBlur={onBlur}
+          value={value}
+          ref={ref}
+        />
+      )}
+    />
+  );
+};

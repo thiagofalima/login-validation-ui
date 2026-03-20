@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import IInput from "../types/IInput";
+import { Controller } from "react-hook-form";
 
-export const Input = styled.input<IInput>`
+export const StyledInput = styled.input`
   width: 80%;
   padding: 10px 16px;
   background-color: #ffffff;
@@ -9,3 +10,15 @@ export const Input = styled.input<IInput>`
   border-radius: 2em;
   border: 2px solid #952294;
 `;
+
+export const Input = ({control,name, ...rest}: IInput) => {
+  return (
+      <Controller
+        name={name}
+        control={control}
+        render={() => <StyledInput {...rest}/>}
+      />
+  )
+}
+
+

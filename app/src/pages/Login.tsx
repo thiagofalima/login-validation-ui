@@ -10,11 +10,8 @@ import { Control } from "react-hook-form";
 
 const schema = yup
   .object({
-    firstName: yup
-      .string()
-      .email("E-mail inválido")
-      .required("Campo obrigarótio"),
-    age: yup
+    email: yup.string().email("E-mail inválido").required("Campo obrigarótio"),
+    password: yup
       .string()
       .min(6, "No mínimo 6 caracteres")
       .required("Campo obrigatório"),
@@ -22,18 +19,28 @@ const schema = yup
   .required();
 
 const Login = () => {
+  const {
+    register,
+    control,
+    watch,
+    formState: { errors, isValid },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const form = watch();
 
-    const { register, control, watch, formState: { errors, isValid } } = useForm();
-    const form = watch();
-
-    console.log(form)
+  console.log(form);
 
   return (
     <Container>
       <Form>
         <Heading>Login</Heading>
-        <Input placeholder="E-mail" {...register("email")} control={ control }/>
-        <Input placeholder="Senha" {...register("password")} control={ control }/>
+        <Input placeholder="E-mail" {...register("email")} control={control} />
+        <Input
+          placeholder="Senha"
+          {...register("password")}
+          control={control}
+        />
         <Button>Entrar</Button>
       </Form>
     </Container>

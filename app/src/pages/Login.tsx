@@ -24,6 +24,8 @@ const Login = () => {
     formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(schema),
+    mode: "onBlur",  // validação sempre que sair do campo
+    revalidateMode: "onChange", // revalidar assim que alterar o campo
   });
 
   console.log(errors);
